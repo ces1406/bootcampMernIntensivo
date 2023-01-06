@@ -7,7 +7,10 @@ const app:Express = express();
 const port:number|string = process.env.PORT || 8000;
 
 app.get('/',(req:Request,res:Response)=>{
-    res.send('HOLA MUNDO LOC4O');
+    res.status(200).json({"data":{"message": "Goodbye, world"} });
+})
+app.get('/hello/:name',(req:Request,res:Response)=>{
+    res.status(200).json({"data":{"message": "Hola "+req.params.name} });
 })
 
 app.listen(port);
